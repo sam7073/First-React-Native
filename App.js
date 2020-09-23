@@ -10,7 +10,9 @@ const App: () => React$Node = () => {
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}></ScrollView>
+          style={styles.scrollView}>
+          <Header />
+        </ScrollView>
       </SafeAreaView>
     </>
   );
