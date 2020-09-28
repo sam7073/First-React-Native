@@ -1,41 +1,39 @@
 import React from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
-
-import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
+import {Button, TouchableOpacity, StyleSheet, View} from 'react-native';
+import {RNCamera} from 'react-native-camera';
 
 const App: () => React$Node = () => {
+  const cameraRef = React.useRef(null);
+  const takePhoto = async () => {
+    console.log('cameraRef', cameraRef);
+    if (cameraRef) {
+      const data = await cameraRef.current.takePictureAsync({
+        quality: 1,
+        exif: true,
+      });
+      console.log('😻 data', data);
+    }
+  };
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={[
-          {key: 'Devin'},
-          {key: 'Dan'},
-          {key: 'Dominic'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+    <>
+      <RNCamera
+        style={{width: 300, height: 300}}
+        type={RNCamera.Constants.Type.back}
+        captureAudio={false}
       />
-    </View>
+      <View>
+        <TouchableOpacity onPress={takePhoto}>
+          <Button title="click" style={styles.button} />
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22,
-  },
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  item: {
-    padding: 10,
-    fontSize: 28,
-    height: 86,
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#222222',
+    padding: 20,
   },
 });
 export default App;
