@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#222222',
-    padding: 20,
+    padding: 21,
   },
 });
 export default App;
