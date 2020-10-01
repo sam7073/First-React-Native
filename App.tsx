@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, TouchableOpacity, StyleSheet, View} from 'react-native';
-import {RNCamera} from 'react-native-camera';
+import { Button, TouchableOpacity, StyleSheet, View } from 'react-native';
+import { RNCamera } from 'react-native-camera';
 
 const App: () => React$Node = () => {
   const cameraRef = React.useRef(null);
@@ -17,7 +17,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <RNCamera
-        style={{width: 300, height: 300}}
+        style={{ width: 300, height: 300 }}
         type={RNCamera.Constants.Type.back}
         captureAudio={false}
       />
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#222222',
-    padding: 20,
+    padding: 30,
   },
 });
 export default App;
