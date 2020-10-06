@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
+
 const App: () => React$Node = () => {
   const cameraRef = React.useRef(null);
   const takePhoto = async () => {
