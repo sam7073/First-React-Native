@@ -29,6 +29,7 @@ const App: () => React$Node = () => {
     </>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
