@@ -1,8 +1,24 @@
 import React from 'react';
 import {Button, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {RNCamera} from 'react-native-camera';
+import * as tf from '@tensorflow/tfjs';
+import * as tfjs from '@tensorflow/tfjs-react-native';
+import {loadGraphModel} from '@tensorflow/tfjs-converter';
 
+async function loadModel(){
+  console.log("ASDASDASD");
+  try
+  {
+    const model = await tfjs.fetch('http://model-server.domain/download/model.json');
+  }
+  catch(err)
+  {
+    console.log(err);
+  }
+};
 const App: () => React$Node = () => {
+  //loadModel();
+  console.log("ASD");
   const cameraRef = React.useRef(null);
   const takePhoto = async () => {
     console.log('cameraRef', cameraRef);
@@ -23,12 +39,13 @@ const App: () => React$Node = () => {
       />
       <View>
         <TouchableOpacity onPress={takePhoto}>
-          <Button title="click" style={styles.button} />
+          <Button title="click" style={styles.button}/>
         </TouchableOpacity>
       </View>
     </>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
@@ -36,4 +53,5 @@ const styles = StyleSheet.create({
     padding: 30,
   },
 });
+
 export default App;
