@@ -16,7 +16,6 @@ async function loadModel(){
     console.log(err);
   }
 };
-
 const App: () => React$Node = () => {
   //loadModel();
   console.log("ASD");
